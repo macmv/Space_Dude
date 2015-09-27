@@ -1,1 +1,1 @@
-This is my first [Gosu](https://www.libgosu.org/) game, and I am having a lot of fun playing it.
+This is my first [Gosu](https://www.libgosu.org/) game, and I am having a lot of fun playing it. run the main.rb file, and it should work, if you have [Gosu](https://www.libgosu.org/) and sdl2 installed.
