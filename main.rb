@@ -17,7 +17,7 @@ class Coin
 	def initialize(x, y)
 		@x = x
 		@y = y
-		@image = Gosu::Image.new "Coin.png"
+		@image = Gosu::Image.new "images/Coin.png"
 	end
 
 	def draw
@@ -31,7 +31,7 @@ class Missle
 		@x = x
 		@y = y
 		@direction = direction
-		@image = Gosu::Image.new "Missle.png"
+		@image = Gosu::Image.new "images/Missle.png"
 	end
 
 	def update
@@ -60,7 +60,7 @@ class SpaceShip
 		@x = WIDTH / 2
 		@y = HEIGHT / 2
 		@direction = 0
-		@image = Gosu::Image.new "starfighter.bmp"
+		@image = Gosu::Image.new "images/starfighter.png"
 	end
 	
 	def draw
@@ -103,7 +103,7 @@ class MiniEnemyShip
 		@x = x
 		@y = y
 		@direction = direction
-		@image = Gosu::Image.new "starfighter enemy.png"
+		@image = Gosu::Image.new "images/starfighter enemy.png"
 	end
 
 	def draw
@@ -128,7 +128,7 @@ class EnemyShip
 		@x = x
 		@y = y
 		@direction = direction
-		@image = Gosu::Image.new "starfighter enemy.png"
+		@image = Gosu::Image.new "images/starfighter enemy.png"
 	end
 
 	def draw
@@ -155,16 +155,16 @@ class Screen < Gosu::Window
 		@coins = []
 		@score = 0
 		@font = Gosu::Font.new(20)
-		@space = Gosu::Image.new "Space.png"
+		@space = Gosu::Image.new "images/Space.png"
 		@game_over = false
-		@beep = Gosu::Sample.new "beep.wav"
-		@music = Gosu::Song.new "Cello_Wars.mp3"
+		@beep = Gosu::Sample.new "music/beep.wav"
+		@music = Gosu::Song.new "music/Cello_Wars.mp3"
 		@music.play if !muted
 		@paused = false
-		@explosion = Gosu::Sample.new "explosion.wav"
+		@explosion = Gosu::Sample.new "music/explosion.wav"
 		@muted = muted
 		@missles = []
-		@record = File.read("Space_Dude_record.txt").to_i
+		@record = File.read("data/Space_Dude_record.txt").to_i
 		#@music.play
 		self.caption = "Space Dude"
 	end
@@ -183,7 +183,7 @@ class Screen < Gosu::Window
 			@font.draw("Game Over", 345, 280, 0, 1.0, 1.0, 0xff_ff0000)
 			if @score > @record
 				@font.draw("New Record!", 341, 300, 0, 1.0, 1.0, 0xff_00ffff)
-				File.open("Space_Dude_record.txt", "w") do |f| 
+				File.open("data/Space_Dude_record.txt", "w") do |f| 
 					f.write @score
 				end
 			end
