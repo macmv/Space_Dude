@@ -2,6 +2,11 @@
 
 require "rubygems"
 require "gosu"
+require "trollop"
+
+$opts = Trollop::options do
+	opt :fullscreen, "Use fullscreen"
+end
 
 module SpaceDude
 
@@ -148,7 +153,7 @@ end
 class Screen < Gosu::Window
 	
 	def initialize(muted)
-		super WIDTH, HEIGHT, true
+		super WIDTH, HEIGHT, $opts[:fullscreen]
 		@ship = SpaceShip.new
 		@enemyships = []
 		@miniships = []
